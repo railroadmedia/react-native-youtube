@@ -1,4 +1,5 @@
 #import "RCTYouTube.h"
+#import <AVFoundation/AVFoundation.h>
 #if __has_include(<React/RCTAssert.h>)
 #import <React/RCTBridge.h>
 #import <React/UIView+React.h>
@@ -32,6 +33,7 @@
 
 - (instancetype)initWithBridge:(RCTBridge *)bridge {
     if ((self = [super initWithFrame:CGRectZero])) {
+      [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
       _bridge = bridge;
 
       _isReady = NO;
